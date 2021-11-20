@@ -3,8 +3,7 @@
              x:Class="AP.M2.CalculatorApp.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
     <StackLayout>
-        
-    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+        <StackLayout Orientation="Vertical" VerticalOptions="Start">
 
             <Grid RowSpacing="5"
                   RowDefinitions="auto, auto, auto, auto, auto, auto, auto">
@@ -17,7 +16,7 @@
                    Padding="10"
                    VerticalTextAlignment="Center"
                    HorizontalTextAlignment="Center"/>
-            <Label Text="PlaceHolder"
+                <Label Text="PlaceHolder"
                    GridLayout.Row="6"
                    GridLayout.Column="0"
                    GridLayout.ColumnSpan="4"
@@ -35,7 +34,6 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Start"
                         x:Name="Expression"/>
-                
                 <Label Text="result: "
                    GridLayout.Row="5"
                    GridLayout.Column="0"
@@ -52,9 +50,8 @@
               RowDefinitions="auto, auto, auto, auto, auto, auto, auto, auto, auto"
               ColumnDefinitions="auto, auto, auto, auto"
               ColumnSpacing="5"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}"
-              >
-                <Button 
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+            <Button 
                 Text="&lt;&lt;"
                 FontAttributes="Bold"
                 Grid.Row="1" 
@@ -159,14 +156,13 @@
                 Grid.Row="5"
                 Grid.Column="2"
                 Clicked="OnBtnCommaClicked"/>
-                <Button 
+            <Button 
                 Text="Clear"
                 FontAttributes="Bold"
                 Grid.Row="6"
                 Grid.Column="0"
                     GridLayout.ColumnSpan="4"
                 Clicked="OnBtnClearClicked"/>
-
             </Grid>
         </StackLayout>
     </StackLayout>

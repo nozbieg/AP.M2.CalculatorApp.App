@@ -26,7 +26,6 @@ namespace AP.M2.CalculatorApp
             {
                 Display.Text += "/";
             }
-
         }
         void OnBtnClearClicked(object sender, EventArgs e)
         {
@@ -48,7 +47,6 @@ namespace AP.M2.CalculatorApp
             {
                 return true;
             }
-
             return false;
         }
 
@@ -57,14 +55,12 @@ namespace AP.M2.CalculatorApp
             if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text))
             {
                 Display.Text += "*";
-
             }
         }
         void OnBtnSubstractClicked(object sender, EventArgs e)
         {
             if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text))
-            {
-
+            { 
                 Display.Text += "-";
             }
         }
@@ -85,7 +81,6 @@ namespace AP.M2.CalculatorApp
             if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text))
             {
                 Display.Text += "+";
-
             }
         }
         void OnBtn4Clicked(object sender, EventArgs e)
@@ -120,7 +115,6 @@ namespace AP.M2.CalculatorApp
                 expression = expression.Remove(expression.Length - 1);
             }
 
-
             var mathExpression = new Expression(expression);
 
             Result.Text = $"result: {mathExpression.calculate().ToString()}";
@@ -133,9 +127,10 @@ namespace AP.M2.CalculatorApp
         }
         void OnBtnCommaClicked(object sender, EventArgs e)
         {
-            if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text) && !CheckIfExpressionHaveComa(Display.Text))
+            if (Display.Text.Length > 0
+                && !CheckIfSymbolIsLast(Display.Text)
+                && !CheckIfExpressionHaveComa(Display.Text))
             {
-
                 Display.Text += ".";
             }
         }
@@ -147,7 +142,6 @@ namespace AP.M2.CalculatorApp
             var element = splitedText[splitedText.Length - 1];
 
             if (element.Contains('.')) { return true; }
-
 
             return false;
         }
