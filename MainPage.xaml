@@ -2,20 +2,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AP.M2.CalculatorApp.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
-    <ScrollView>
-        <Grid RowSpacing="5" 
+    <StackLayout>
+        
+    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+
+            <Grid RowSpacing="5"
+                  RowDefinitions="auto, auto, auto, auto, auto, auto, auto">
+                <Label Text="Simple Calculator"
+                   GridLayout.Row="0"
+                   GridLayout.RowSpan="2"
+                   GridLayout.Column="0"
+                   GridLayout.ColumnSpan="4"
+                   FontSize="40"                   
+                   Padding="10"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="PlaceHolder"
+                   GridLayout.Row="6"
+                   GridLayout.Column="0"
+                   GridLayout.ColumnSpan="4"
+                   FontSize="25"                   
+                   Padding="10"
+                   x:Name="Display"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Label Text="expression: "
+                   GridLayout.Row="4"
+                   GridLayout.Column="0"
+                   GridLayout.ColumnSpan="4"
+                   FontSize="25"                   
+                   Padding="10"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start"
+                        x:Name="Expression"/>
+                
+                <Label Text="result: "
+                   GridLayout.Row="5"
+                   GridLayout.Column="0"
+                   GridLayout.ColumnSpan="4"
+                   FontSize="25"                   
+                   Padding="10"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start"
+                   x:Name="Result"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" VerticalOptions="End">
+            <Grid RowSpacing="5" 
               RowDefinitions="auto, auto, auto, auto, auto, auto, auto, auto, auto"
               ColumnDefinitions="auto, auto, auto, auto"
               ColumnSpacing="5"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-            <Label Text="Placeholder"
-                   GridLayout.Row="0"
-                   GridLayout.Column="0"
-                   GridLayout.ColumnSpan="4"
-                   FontSize="25"
-                   HorizontalTextAlignment="End"
-                   x:Name="Display"/>
-            <Button 
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}"
+              >
+                <Button 
                 Text="&lt;&lt;"
                 FontAttributes="Bold"
                 Grid.Row="1" 
@@ -120,7 +159,15 @@
                 Grid.Row="5"
                 Grid.Column="2"
                 Clicked="OnBtnCommaClicked"/>
+                <Button 
+                Text="Clear"
+                FontAttributes="Bold"
+                Grid.Row="6"
+                Grid.Column="0"
+                    GridLayout.ColumnSpan="4"
+                Clicked="OnBtnClearClicked"/>
 
-        </Grid>
-    </ScrollView>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

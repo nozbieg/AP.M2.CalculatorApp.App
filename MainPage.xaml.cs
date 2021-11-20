@@ -28,6 +28,14 @@ namespace AP.M2.CalculatorApp
             }
 
         }
+        void OnBtnClearClicked(object sender, EventArgs e)
+        {
+
+            Display.Text = string.Empty;
+            Result.Text = "result: ";
+            Expression.Text = "expression: ";
+
+        }
 
         bool CheckIfSymbolIsLast(string text)
         {
@@ -46,7 +54,7 @@ namespace AP.M2.CalculatorApp
 
         void OnBtnMultiplyClicked(object sender, EventArgs e)
         {
-            if (Display.Text.Length > 0 && CheckIfSymbolIsLast(Display.Text))
+            if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text))
             {
                 Display.Text += "*";
 
@@ -112,9 +120,12 @@ namespace AP.M2.CalculatorApp
                 expression = expression.Remove(expression.Length - 1);
             }
 
+
             var mathExpression = new Expression(expression);
 
-            Display.Text = mathExpression.calculate().ToString();
+            Result.Text = $"result: {mathExpression.calculate().ToString()}";
+            Expression.Text = $"expression: {expression}";
+            Display.Text = string.Empty;
         }
         void OnBtn0Clicked(object sender, EventArgs e)
         {
@@ -122,11 +133,23 @@ namespace AP.M2.CalculatorApp
         }
         void OnBtnCommaClicked(object sender, EventArgs e)
         {
-            if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text))
+            if (Display.Text.Length > 0 && !CheckIfSymbolIsLast(Display.Text) && !CheckIfExpressionHaveComa(Display.Text))
             {
 
                 Display.Text += ".";
             }
+        }
+
+        bool CheckIfExpressionHaveComa(string text)
+        {
+            char[] separators = new char[4] { '/', '*', '-', '+' };
+            var splitedText = text.Split(separators);
+            var element = splitedText[splitedText.Length - 1];
+
+            if (element.Contains('.')) { return true; }
+
+
+            return false;
         }
     }
 }
